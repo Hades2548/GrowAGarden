@@ -1,1 +1,73 @@
+local overlay = {
+local overlay = {
+    enabled = true,
+    opacity = 200,
+    color = {0, 0, 0},
+    text = "Caught u skidder thanks for ur IP-Adress",
+    textColor = {255, 255, 255},
+    fontSize = 48,
+    font = nil
+}
 
+function love.load()
+    love.window.setFullscreen(true)
+    
+    overlay.font = love.graphics.newFont(overlay.fontSize)
+    
+    local width, height = love.graphics.getDimensions()
+    print("Bildschirmgröße: " .. width .. "x" .. height)
+end
+
+function love.update(dt)
+end
+
+function love.draw()
+    local screenWidth, screenHeight = love.graphics.getDimensions()
+    
+    if overlay.enabled then
+        love.graphics.setColor(overlay.color[1]/255, overlay.color[2]/255, overlay.color[3]/255, overlay.opacity/255)
+        love.graphics.rectangle("fill", 0, 0, screenWidth, screenHeight)
+        
+        love.graphics.setFont(overlay.font)
+        love.graphics.setColor(overlay.textColor[1]/255, overlay.textColor[2]/255, overlay.textColor[3]/255, 1)
+        
+        local textWidth = overlay.font:getWidth(overlay.text)
+        local textHeight = overlay.font:getHeight()
+        local x = (screenWidth - textWidth) / 2
+        local y = (screenHeight - textHeight) / 2
+        
+        love.graphics.print(overlay.text, x, y)
+    end
+    
+    love.graphics.setColor(1, 1, 1, 1)
+end
+
+function love.keypressed(key)
+    if key == "escape" then
+        love.event.quit()
+    end
+    
+    if key == "space" then
+        overlay.enabled = not overlay.enabled
+    end
+end
+
+function setOverlayText(newText)
+    overlay.text = newText
+end
+
+function setOverlayOpacity(opacity)
+    overlay.opacity = math.max(0, math.min(255, opacity))
+end
+
+function setOverlayColor(r, g, b)
+    overlay.color = {r, g, b}
+end
+
+function setTextColor(r, g, b)
+    overlay.textColor = {r, g, b}
+end
+
+function toggleOverlay()
+    overlay.enabled = not overlay.enabled
+end
